@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 遮罩 */
+.overlay-container::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0,0,0,var(--overlay-opacity,0.4));/* 預設0.4 */
+    z-index: 1;
+
+}
+/* 內容在遮罩之上 */
+.overlay-container > div{
+    z-index:2;
+}
