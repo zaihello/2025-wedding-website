@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:'/2025-wedding-website/',
   plugins: [vue()],
-  base:'/my-wedding-website/',
+
+  
 })
