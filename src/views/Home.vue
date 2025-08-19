@@ -87,6 +87,8 @@ onMounted(() => {
 </script>
 
 <template>
+<header>
+
   <div class="font-sans text-gray-800">
     <!-- Header -->
     <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
@@ -122,7 +124,7 @@ onMounted(() => {
     </header>
 
     <!-- Hero -->
-    <section class="pt-24 bg-pink-50">
+    <!-- <section class="pt-24 bg-pink-50">
       <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1 text-center md:text-left">
           <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -139,8 +141,37 @@ onMounted(() => {
           <img src="https://source.unsplash.com/600x400/?wedding" alt="Wedding" class="rounded-xl shadow-lg" />
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
+  <!-- hero -->
+  <section>
+    <div 
+        class="relative overlay-container"
+        style="--overlay-opacity:0.4;"
+    >
+      <!--   -->
+      <img src="https://picsum.photos/id/30/1920/1080" 
+         alt=""
+         class="h-[85vh] w-full object-cover"
+      >
+      <!-- 標題 --> 
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center ">
+        <h3 class="text-sm uppercase [letter-spacing:6px]">dedicated services</h3>
+        <h1 class="text-7xl font-serif pt-5 pb-16">For Happy Couples</h1>
+        <button class="inline-block bg-cyan-500 text-white hover:bg-gray-100 hover:text-cyan-500 font-bold
+                        py-4 px-10 rounded-full transition duration-300"
+        > Discover More
+        </button>
+      </div>
+      <!--  -->
+      <div class="w-16 h-16 bg-cyan-500 group hover:bg-gray-100 transition duration-300 rounded-full absolute left-1/2 -translate-y-1/2 flex items-center justify-center" >
+        <font-awesome-icon :icon="['fas','arrow-down']" class="text-white group-hover:text-cyan-500 fone-bold text-lg"> </font-awesome-icon>
+       
+      </div>
+    </div>
+  </section>
+</header>  
+<main>
   <!-- 關於我們 -->
   <section class="py-28 bg-white">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row  md:items-start gap-10">
@@ -169,7 +200,7 @@ onMounted(() => {
         <p class="text-gray-700 leading-relaxed text-left">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae, penci.
         </p>
-        <button class="inline-block bg-cyan-500  text-white hover:bg-gray-100 hover:text-cyan-500 font-bold
+        <button class="inline-block bg-cyan-500 text-white hover:bg-gray-100 hover:text-cyan-500 font-bold
                        py-4 px-10 rounded-full transition duration-300">
           Call Us Now
         </button>
@@ -295,7 +326,7 @@ onMounted(() => {
         <p class="text-gray-700 leading-relaxed md:w-1/2 w-4/5 mx-auto">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div v-for="blogPost in blogPosts" :key="blogPost.id" class="space-y-2">
+        <article v-for="blogPost in blogPosts" :key="blogPost.id" class="space-y-2">
           <img 
             :src="blogPost.image" 
             alt="Our Wedding Blog"
@@ -306,7 +337,7 @@ onMounted(() => {
           <div class="text-xs text-gray-700 ">
             <pre>by <a class="font-semibold">{{ blogPost.auther }}</a> | <span>{{ blogPost.date }}</span></pre>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -326,7 +357,8 @@ onMounted(() => {
               <p class="leading-relaxed text-left">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
             </div>
             <!-- icon -->
-            <div class="space-y-3">
+            <address class="not-italic space-y-3">
+              <!-- < class=""> -->
               <div class="text-white flex justify-between items-center space-x-4">
                 <div class="flex items-center space-x-2">
                   <!-- fas 是 solid 風格 -->
@@ -352,7 +384,8 @@ onMounted(() => {
                 <div class="flex-grow border-b border-white border-dashed"></div>
                 <p class="">+(1800)9388</p>
               </div>
-            </div> 
+              <!-- </> -->
+            </address> 
           </div>
         
         </div>
@@ -406,11 +439,10 @@ onMounted(() => {
       </div>
     </div>
   </section>
+</main>    
 </template>
 
 <style>
-.overlay-container {
-  --overlay-opacity:0.6;
-}
+
 </style>
 

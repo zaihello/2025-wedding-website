@@ -9,7 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 //匯入 Vue 元件
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //匯入你要使用的圖示
-import { faMapPin, faEnvelope, faPhoneAlt,faAlarmClock } from '@fortawesome/free-solid-svg-icons'
+import { faMapPin, faEnvelope, faPhoneAlt,faAlarmClock,faArrowDown} from '@fortawesome/free-solid-svg-icons'
 
 import Home from './views/Home.vue'
 
@@ -24,7 +24,7 @@ const router = createRouter({
 })
 
 //將圖示新增到函式庫中
-library.add(faMapPin, faEnvelope, faPhoneAlt,faAlarmClock)
+library.add(faMapPin, faEnvelope, faPhoneAlt,faAlarmClock,faArrowDown)
 
 const app = createApp(App)
 
