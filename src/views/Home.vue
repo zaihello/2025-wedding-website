@@ -1,11 +1,25 @@
 <script setup>
-import { onMounted,ref} from 'vue'
+import { ref,onMounted,onBeforeUnmount} from 'vue'
 // 匯入 Splide 函式庫
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css'
 
-// 建立一個 ref 來取得 DOM 元素
+// 取得 DOM 元素
 const splideRef = ref(null)
+
+const isMenuOpen = ref(false)
+const isScrolled = ref(false)
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+const handleScroll = () => {
+  if(window.scrollY > 100) {
+    isScrolled.value = true
+  }else{
+    isScrolled.value = false
+  }
+}
+
 
 //定義輪播資料
 const testimonials = [
@@ -53,6 +67,9 @@ const blogPosts = ref([
 ])
 
 onMounted(() => {
+  // 滾動事件監聽
+  window.addEventListener('scroll',handleScroll)
+
     // 在元件掛載後才初始化 Splide
     if(splideRef.value) {
         const splide = new Splide(splideRef.value,{
@@ -71,105 +88,144 @@ onMounted(() => {
         splide.mount()
     }
 })
-// export default {
-//   name: "WeddingPlannerPage",
-//   data() {
-//     return {
-//       isMenuOpen: false,
-//     };
-//   },
-//   methods: {
-//     toggleMenu() {
-//       this.isMenuOpen = !this.isMenuOpen;
-//     },
-//   },
-// };
+
+onBeforeUnmount(() => {
+  // 元件銷毀前，移除監聽
+  window.removeEventListener('scroll',handleScroll)
+})
+
 </script>
 
 <template>
 <header>
-
-  <div class="font-sans text-gray-800">
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
-      <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <h1 class="text-2xl font-bold text-pink-600">Wedding Planner</h1>
-        <!-- Desktop menu -->
-        <nav class="hidden md:flex gap-6 font-medium">
-          <a href="#" class="hover:text-pink-500">首頁</a>
-          <a href="#" class="hover:text-pink-500">關於我們</a>
-          <a href="#" class="hover:text-pink-500">服務</a>
-          <a href="#" class="hover:text-pink-500">作品</a>
-          <a href="#" class="hover:text-pink-500">聯絡我們</a>
-        </nav>
-        <!-- Mobile hamburger -->
-        <button @click="toggleMenu" class="md:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-      <!-- Mobile menu -->
-      <div v-if="isMenuOpen" class="md:hidden bg-white border-t">
-        <nav class="flex flex-col p-4 space-y-2">
-          <a href="#" class="hover:text-pink-500">首頁</a>
-          <a href="#" class="hover:text-pink-500">關於我們</a>
-          <a href="#" class="hover:text-pink-500">服務</a>
-          <a href="#" class="hover:text-pink-500">作品</a>
-          <a href="#" class="hover:text-pink-500">聯絡我們</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <!-- <section class="pt-24 bg-pink-50">
-      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
-        <div class="flex-1 text-center md:text-left">
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            讓你的婚禮與眾不同
-          </h2>
-          <p class="text-gray-600 mb-6">
-            我們為您打造專屬、夢幻且溫馨的婚禮體驗，細節至上，讓每一刻都完美呈現。
-          </p>
-          <button class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg transition">
-            開始規劃
-          </button>
-        </div>
-        <div class="flex-1">
-          <img src="https://source.unsplash.com/600x400/?wedding" alt="Wedding" class="rounded-xl shadow-lg" />
-        </div>
-      </div>
-    </section> -->
-  </div>
-  <!-- hero -->
-  <section>
-    <div 
-        class="relative overlay-container"
-        style="--overlay-opacity:0.4;"
-    >
-      <!--   -->
-      <img src="https://picsum.photos/id/30/1920/1080" 
-         alt=""
-         class="h-[85vh] w-full object-cover"
+  <nav 
+    class="fixed z-50 w-full bg-white "
+    :class="{
+      'md:bg-transparent md:text-white':!isScrolled,
+      'md:bg-white md:text-gray-700 md:shadow-md':isScrolled
+    }"
+  >
+    <!-- 大螢幕選單 -->
+    <div class="md:max-w-6xl md:m-auto flex justify-between items-center">
+      <!-- 漢堡選單 -->
+      <button class="py-5 md:hidden" @click="toggleMenu">
+        <font-awesome-icon :icon="['fas','bars']" class="text-gray-700 md:text-white"/>
+      </button>
+      <ul 
+        class="hidden md:flex gap-8"
       >
-      <!-- 標題 --> 
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center ">
-        <h3 class="text-sm uppercase [letter-spacing:6px]">dedicated services</h3>
-        <h1 class="text-7xl font-serif pt-5 pb-16">For Happy Couples</h1>
-        <button class="inline-block bg-cyan-500 text-white hover:bg-gray-100 hover:text-cyan-500 font-bold
-                        py-4 px-10 rounded-full transition duration-300"
-        > Discover More
-        </button>
-      </div>
-      <!--  -->
-      <div class="w-16 h-16 bg-cyan-500 group hover:bg-gray-100 transition duration-300 rounded-full absolute left-1/2 -translate-y-1/2 flex items-center justify-center" >
-        <font-awesome-icon :icon="['fas','arrow-down']" class="text-white group-hover:text-cyan-500 fone-bold text-lg"> </font-awesome-icon>
-       
+        <li><a href="" class="inline-block py-5 font-bold hover:text-cyan-500 transition duration-300">Home</a></li>
+        <li><a href="" class="inline-block py-5 font-bold hover:text-cyan-500 transition duration-300">Services</a></li>
+        <li><a href="" class="inline-block py-5 font-bold hover:text-cyan-500 transition duration-300">About Us</a></li>
+      </ul>
+
+      <a href="" class="hidden md:block">
+        <img src="https://demosoledad.pencidesign.net/soledad-wedding-planner-multipurpose/wp-content/uploads/sites/36/2019/11/logo-t.png" alt="Wedding logo" class="w-28 h-14 ">
+      </a>
+
+      <ul class="hidden md:flex gap-8"
+      >
+        <li><a href="" class="inline-block py-5 font-bold hover:text-cyan-500 transitionn duration-300">Contant Us</a></li>
+        <li><a href="" class="inline-block py-5 font-bold hover:text-cyan-500 transitionn duration-300">Our Blog</a></li>
+        <li><a href="" class="inline-block py-5">
+          <font-awesome-icon 
+            :icon="['fas','magnifying-glass']" 
+            :class="{
+              'text-gray-700 md:text-white':!isScrolled,
+              'md:text-gray-700':isScrolled
+            }"
+            
+          /></a>
+        </li>
+      </ul>
+
+      <a href="" class="py-5 md:hidden">
+        <font-awesome-icon :icon="['fas','magnifying-glass']" class="text-gray-700 md:text-white"/>
+      </a>
+    </div>
+    <!-- 小螢幕選單 -->
+    <!-- 遮罩 -->
+    <transition name="fade">
+      <div
+        v-if="isMenuOpen"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" 
+      >
+      </div> 
+    </transition>
+    <!-- 選單框-->
+    <transition name="slide">
+    <div
+      v-if="isMenuOpen"
+      class="fixed z-50 top-0 left-0 w-72 h-full bg-white overflow-auto md:hidden"   
+    >
+      <div class="relative p-5">
+        <!-- 標題 -->
+        <div class="flex flex-col items-center py-10">
+          <div @click="toggleMenu" class="absolute top-0 right-0 p-2">
+            <font-awesome-icon 
+              :icon="['fas','xmark']" 
+              class=" hover:scale-150 transition duration-300 cursor-pointer"
+            />
+          </div>
+          <a href="" class="mb-5">
+            <img src="https://demosoledad.pencidesign.net/soledad-wedding-planner-multipurpose/wp-content/uploads/sites/36/2019/11/logo.png" alt="Wedding logo" class="w-52 h-14 m-auto ">
+          </a>  
+          <div class="border border-cyan-200 w-1/5 m-auto"></div>
+         
+          <address class="text-center mt-4">
+            <a href=""><font-awesome-icon :icon="['fab','facebook-f']" class="px-2 hover:text-cyan-500 transition duration-300"/></a>
+            <a href=""><font-awesome-icon :icon="['fab','x-twitter']" class="px-2 hover:text-cyan-500 transition duration-300" /></a>
+            <a href=""><font-awesome-icon :icon="['fab','instagram']" class="px-2 hover:text-cyan-500 transition duration-300" /></a>
+            <a href=""><font-awesome-icon :icon="['fab','youtube']" class="px-2 hover:text-cyan-500 transition duration-300" /></a>
+          </address> 
+        </div>
+        <!-- 選單 -->
+        <nav class="flex flex-col">
+          <a href="" class="font-bold  border-b border-gray-200 py-2 hover:text-cyan-500 transition duration-300">HOME</a>
+          <a href="" class="font-bold  border-b border-gray-200 py-2 hover:text-cyan-500 transition duration-300">SERVICES</a>
+          <a href="" class="font-bold  border-b border-gray-200 py-2 hover:text-cyan-500 transition duration-300">ABOUT US</a>
+          <a href="" class="font-bold  border-b border-gray-200 py-2 hover:text-cyan-500 transition duration-300">CONTACT US</a>
+          <a href="" class="font-bold py-2 hover:text-cyan-500 transition duration-300">OUR BLOG</a>
+        </nav>
       </div>
     </div>
-  </section>
+    </transition>
+  </nav>
+  <!-- hero --> 
+  <section>
+    <div
+      class="relative overlay-container"
+      style="--overlay-opacity:0.4;"
+    >
+      <img 
+        src="https://picsum.photos/id/30/1920/1080"
+        alt=""
+        class="min-h-[500px] md:h-[80vh] w-full object-cover"
+      >
+     <!-- 內容 -->
+      <div 
+        class="w-full h-full absolute inset-0 flex flex-col justify-center items-center text-white text-center border"
+      >
+        <h3 class="text-sm uppercase [letter-spacing:6px]">dedicated services</h3>
+        <h1 class="text-7xl font-serif pt-5 pb-16">For Happy Couples</h1>
+        <button 
+          class="inline-block bg-cyan-500 text-white hover:bg-gray-100 hover:text-cyan-500 font-bold py-4 px-10 rounded-full transition duration-300"
+        > 
+          Discover More
+        </button>
+      </div>
+    
+      <div 
+        class="w-16 h-16 bg-cyan-500 group hover:bg-gray-100 transition duration-300 rounded-full absolute left-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center"
+      >
+        <font-awesome-icon 
+          :icon="['fas','arrow-down']" 
+          class="text-white group-hover:text-cyan-500 font-bold text-lg"
+        >
+        </font-awesome-icon>
+      </div>
+    </div>
+  </section>   
 </header>  
 <main>
   <!-- 關於我們 -->
@@ -442,7 +498,27 @@ onMounted(() => {
 </main>    
 </template>
 
-<style>
+<style scoped>
+/* 側邊選單的過渡 */
+.slide-enter-active,
+.slide-leave-active {
+  transition:transform 0.5s ease-in-out 
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+
+/* 遮罩的過渡 */
+.fade-enter-active,
+.fade-leave-active {
+  transition:opacity 0.3s ease-in-out 
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 </style>
 
