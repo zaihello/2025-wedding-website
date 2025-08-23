@@ -172,12 +172,12 @@ onBeforeUnmount(() => {
           </a>  
           <div class="border border-cyan-200 w-1/5 m-auto"></div>
          
-          <address class="text-center mt-4">
-            <a href=""><font-awesome-icon :icon="['fab','facebook-f']" class="px-2 hover:text-cyan-500 transition duration-300"/></a>
-            <a href=""><font-awesome-icon :icon="['fab','x-twitter']" class="px-2 hover:text-cyan-500 transition duration-300" /></a>
-            <a href=""><font-awesome-icon :icon="['fab','instagram']" class="px-2 hover:text-cyan-500 transition duration-300" /></a>
-            <a href=""><font-awesome-icon :icon="['fab','youtube']" class="px-2 hover:text-cyan-500 transition duration-300" /></a>
-          </address> 
+          <ul class="text-center mt-4 flex">
+            <li><a href=""><font-awesome-icon :icon="['fab','facebook-f']" class="px-2 hover:text-cyan-500 transition duration-300"/></a></li>
+            <li><a href=""><font-awesome-icon :icon="['fab','x-twitter']" class="px-2 hover:text-cyan-500 transition duration-300" /></a></li>
+            <li><a href=""><font-awesome-icon :icon="['fab','instagram']" class="px-2 hover:text-cyan-500 transition duration-300" /></a></li>
+            <li><a href=""><font-awesome-icon :icon="['fab','youtube']" class="px-2 hover:text-cyan-500 transition duration-300" /></a></li>
+          </ul> 
         </div>
         <!-- 選單 -->
         <nav class="flex flex-col">
@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
         class="w-full h-full absolute inset-0 flex flex-col justify-center items-center text-white text-center border"
       >
         <h3 class="text-sm uppercase [letter-spacing:6px]">dedicated services</h3>
-        <h1 class="text-7xl font-serif pt-5 pb-16">For Happy Couples</h1>
+        <h1 class="font-cursive text-7xl pt-6 pb-12">For Happy Couples</h1>
         <button 
           class="inline-block bg-cyan-500 text-white hover:bg-gray-100 hover:text-cyan-500 font-bold py-4 px-10 rounded-full transition duration-300"
         > 
@@ -252,7 +252,7 @@ onBeforeUnmount(() => {
       <!-- 文字內容 -->
       <div class="w-full md:w-4/12 space-y-2 lg:text-left">
         <h3 class="text-sm font-black text-cyan-500 uppercase [letter-spacing:6px]">about us</h3>
-        <h2 class="text-2xl font-serif">Wedding & Events</h2>
+        <h2 class="font-cursive text-4xl">Wedding & Events</h2>
         <p class="text-gray-700 leading-relaxed text-left">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae, penci.
         </p>
@@ -268,46 +268,49 @@ onBeforeUnmount(() => {
     <!-- 標題區 -->
     <div class="text-center space-y-3 mb-10">
         <h3 class="text-sm font-black text-cyan-500 uppercase [letter-spacing:6px]">wedding planner</h3>
-        <h2 class="text-2xl font-serif">Wedding Services</h2>
+        <h2 class="font-cursive text-5xl">Wedding Services</h2>
         <p class="text-gray-700 leading-relaxed w-full md:w-3/5 lg:w-1/3 mx-auto">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
     </div>
     <!-- 卡片 -->
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:gap-8 gap-y-28">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
         <!-- 第一張 -->
-        <div class="relative">
-            <img src="https://demosoledad.pencidesign.net/soledad-wedding-planner-multipurpose/wp-content/uploads/sites/36/2019/11/11-1024x683.jpg" alt="Wedding Planning"
-                 class="w-full h-full object-cover"    
-            >
-            <!-- 原版 -->
-            <div class="absolute w-4/5 shadow-lg bg-white p-6 text-center
+        <div class="pb-24">
+          <div class="relative">
+              <img src="https://demosoledad.pencidesign.net/soledad-wedding-planner-multipurpose/wp-content/uploads/sites/36/2019/11/11-1024x683.jpg" alt="Wedding Planning"
+                 class="w-full h-[450px] md:h-[550px] object-cover"    
+              >
+              <!-- 原版 -->
+              <div class="absolute w-4/5 shadow-lg bg-white p-6 text-center
                         bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"                             
-            >
-                <h2 class="text-2xl font-serif">Wedding Planning</h2>
-                <p class="text-gray-700 leading-relaxed">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxi.</p>
-            </div>
+              >
+                  <h2 class="font-cursive text-4xl">Wedding Planning</h2>
+                  <p class="text-gray-700 leading-relaxed">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxi.</p>
+              </div>
             
+          </div>
         </div>
         <!-- 第二張 -->
-        <div class="relative">
+        <div class=" pb-24">
+          <div class="relative">
             <img src="https://demosoledad.pencidesign.net/soledad-wedding-planner-multipurpose/wp-content/uploads/sites/36/2019/11/12-1024x683.jpg" alt=""
-            class="w-full h-full object-cover"
+            class="w-full h-[450px] md:h-[550px] object-cover"
             >
-           
             <div class="absolute w-4/5 shadow-lg bg-white p-6 text-center
                         bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 "
-            
             >
-                <h2 class="text-2xl font-serif">Decoration Service</h2>
+                <h2 class="font-cursive text-4xl">Decoration Service</h2>
                 <p class="text-gray-700 leading-relaxed">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxi.</p>
             </div>
+          </div>
         </div>
     </div>
+    <!-- </div> -->
   </section>
   <!-- 顧客感言 -->
   <section class="py-24 bg-white">
       <div class="text-center space-y-3">
           <h3 class="text-sm font-black text-cyan-500 uppercase [letter-spacing:6px]">wedding planner</h3>
-          <h2 class="text-2xl font-serif">What Customers Say</h2>
+          <h2 class="font-cursive text-5xl">What Customers Say</h2>
       </div>
       <div class="max-w-6xl mx-auto px-4">
           <div ref="splideRef" class="splide" aria-label="Customer Testimonials">
@@ -331,8 +334,8 @@ onBeforeUnmount(() => {
 
       </div>
   </section>
-  <!--  -->
-  <section class="py-24">
+  <!-- Grid圖片組合 -->
+  <section id="grid-img" class="relative">
     <div class="max-w-6xl mx-auto px-4">
       <!-- 圖片 -->
       <div class="flex flex-col md:flex-row gap-2 ">
@@ -343,7 +346,7 @@ onBeforeUnmount(() => {
             alt="Elegant Wedding"
             class="absolute inset-0 w-full h-full object-cover">
           <div class="text-center text-white w-4/5  space-y-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h2 class="text-2xl font-serif">Elegant Wedding</h2>
+            <h2 class="font-cursive text-5xl">Elegant Wedding</h2>
             <p class="text-white leading-relaxed ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
             <button class="inline-block bg-cyan-500  text-white hover:bg-gray-100 hover:text-cyan-500 font-bold py-4 px-10 rounded-full transition duration-300">Call Us Now</button>
                        
@@ -373,12 +376,12 @@ onBeforeUnmount(() => {
     </div>
   </section>
   <!-- Our Wedding Blog -->
-  <section>
+  <section id="blog" class="relative py-24">
     <div class="max-w-6xl mx-auto space-y-9">
       <!-- 標題 -->
       <div class="text-center space-y-3">
         <h3 class="text-sm font-black text-cyan-500 uppercase [letter-spacing:6px]">wedding planner</h3>
-        <h2 class="text-2xl font-serif">Our Wedding Blog</h2>
+        <h2 class="font-cursive text-5xl">Our Wedding Blog</h2>
         <p class="text-gray-700 leading-relaxed md:w-1/2 w-4/5 mx-auto">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -401,7 +404,7 @@ onBeforeUnmount(() => {
   <section>
     <div class="flex flex-col md:flex-row h-full" >
       <!-- 左邊 -->
-      <div class=" w-full md:flex-1 ">
+      <div class=" w-full md:flex-1">
         <div class="relative min-h-[500px] overlay-container">
           <img src="https://demosoledad.pencidesign.net/soledad-wedding-planner-multipurpose/wp-content/uploads/sites/36/2019/11/7-1170x780.jpg" alt="send us"class="absolute inset-0 w-full h-full object-cover">
           <!--  -->
@@ -409,13 +412,13 @@ onBeforeUnmount(() => {
             <!-- 標題 -->
             <div class="space-y-4"> 
               <h3 class="text-sm font-black uppercase [letter-spacing:6px]">send us</h3>
-              <h2 class="text-2xl font-serif">Contact Info</h2>
+              <h2 class="font-cursive text-5xl">Contact Info</h2>
               <p class="leading-relaxed text-left">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
             </div>
             <!-- icon -->
             <address class="not-italic space-y-3">
               <!-- < class=""> -->
-              <div class="text-white flex justify-between items-center space-x-4">
+              <div class="text-white flex items-center space-x-4 flex-wrap">
                 <div class="flex items-center space-x-2">
                   <!-- fas 是 solid 風格 -->
                   <font-awesome-icon :icon="['fas','map-pin']" class="text-white"/>
@@ -424,7 +427,7 @@ onBeforeUnmount(() => {
                 <div class="flex-grow border-b border-white border-dashed"></div>
                 <p class="">Central Park, NYC</p>
               </div>
-              <div class="text-white flex justify-between items-center space-x-4">
+              <div class="text-white flex items-center space-x-4 flex-wrap">
                 <div class="flex items-center space-x-2">
                   <font-awesome-icon :icon="['fas','envelope']" class="text-white"/>
                   <h3 class="text-lg font-bold">Email Address</h3>
@@ -432,7 +435,7 @@ onBeforeUnmount(() => {
                 <div class="flex-grow border-b border-white border-dashed"></div>
                 <p class="">pencidesign@gmail.com</p>
               </div>
-              <div class="text-white flex justify-between items-center space-x-4">
+              <div class="text-white flex items-center space-x-4 flex-wrap">
                 <div class="flex items-center space-x-2">
                   <font-awesome-icon :icon="['fas','phone-alt']" class="text-white"/>
                   <h3 class="text-lg font-bold">Phone Number</h3>
@@ -452,7 +455,7 @@ onBeforeUnmount(() => {
           <!-- 標題 -->
           <div class="space-y-4">
             <h3 class="text-sm text-cyan-500 font-black uppercase [letter-spacing:6px]">wedding planner</h3>
-            <h2 class="text-2xl font-serif">Opening Hours</h2>
+            <h2 class="font-cursive text-5xl">Opening Hours</h2>
             <p class="leading-relaxed text-gray-600">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor em que, viva la vida penci wed.</p>
           </div>
           <!-- icon -->
@@ -463,7 +466,9 @@ onBeforeUnmount(() => {
                 <h3 class="text-lg font-bold text-gray-600">Mon - Friday</h3>
               </div>
               <div class="flex-1 border border-b border-gray-400 border-dashed"></div>
-              <p class="text-gray-600">8:00 AM - 9:00 PM</p>
+              <p class="text-gray-600">
+                <time datetime="08:00">8:00 AM </time> - <time datetime="21:00">9:00 PM</time> 
+              </p>
             </div>
              <div class="flex items-center space-x-4">
               <div class="flex items-center space-x-2">
@@ -471,7 +476,9 @@ onBeforeUnmount(() => {
                 <h3 class="text-lg font-bold text-gray-600">Saturday</h3>
               </div>
               <div class="flex-1 border border-b border-gray-400 border-dashed"></div>
-              <p class="text-gray-600">8:00 AM - 9:00 PM</p>
+              <p class="text-gray-600">
+                <time datetime="08:00">8:00 AM</time> - <time datetime="21:00">9:00 PM</time>
+              </p>
             </div>
              <div class="flex items-center space-x-4">
               <div class="flex items-center space-x-2">
@@ -479,23 +486,51 @@ onBeforeUnmount(() => {
                 <h3 class="text-lg font-bold text-gray-600">Sunday & Holiday</h3>
               </div>
               <div class="flex-1 border border-b border-gray-400 border-dashed"></div>
-              <p class="text-gray-600">8:00 AM - 9:00 PM</p>
+              <p class="text-gray-600"> 
+                <time datetime="08:00">8:00 AM</time> - <time datetime="21:00">9:00 PM</time>
+              </p>
             </div>
           </div>
         </div>
       </div>
       <!-- 右邊 -->
-      <div class="w-full md:flex-1 min-h[500px]">
+      <div class="w-full md:flex-1">
         <iframe 
           src="https://www.youtube.com/embed/XHOmBV4js_E?si=Jy3ZeWcUGyRm3NgX" 
           allowfullscreen
-          class="w-full h-full"
+          class="w-full min-h-[500px]"
         >
         </iframe>
       </div>
     </div>
   </section>
-</main>    
+</main>  
+<footer>
+  <div class="bg-black flex flex-col items-center">
+    <ul class="text-center flex gap-4 py-6">
+      <li class="group">
+        <a href=""><font-awesome-icon :icon="['fab','facebook-f']" class="px-2 text-gray-500 group-hover:text-white transition duration-300"/><span class="text-gray-500 group-hover:text-cyan-500 transition duration-300 hidden md:inline"><b>FACEBOOK</b></span>
+        </a>
+      </li>
+      <li class="group">
+        <a href=""><font-awesome-icon :icon="['fab','x-twitter']" class="px-2 text-gray-500 group-hover:text-white transition duration-300" /><span class="text-gray-500 group-hover:text-cyan-500 transition duration-300 hidden md:inline"><b> TWITTER</b></span> 
+        </a>
+      </li>
+      <li class="group">
+        <a href=""><font-awesome-icon :icon="['fab','instagram']" class="px-2 text-gray-500 group-hover:text-white transition duration-300" /><span class="text-gray-500 group-hover:text-cyan-500 transition duration-300 hidden md:inline"><b>INSTAGRAM</b></span>
+        </a>
+      </li>
+      <li class="group">
+        <a href=""><font-awesome-icon :icon="['fab','youtube']" class="px-2 text-gray-500 group-hover:text-white transition duration-300" /><span class="text-gray-500 group-hover:text-cyan-500 transition duration-300 hidden md:inline"><b> YOUTUBE</b></span>
+        </a>
+      </li>
+    </ul> 
+    <hr class="border-solid border-t border-gray-500 opacity-35 w-2/5">
+    <div class="py-4">
+      <small class="text-gray-500">&copy;<time datetime="2025">2025</time> - All Right Reserved. Designed and Developed by <a href="" class="text-cyan-500 hover:border-b border-cyan-500">PenciDesign</a></small>
+    </div>
+  </div>
+</footer>  
 </template>
 
 <style scoped>
@@ -519,6 +554,28 @@ onBeforeUnmount(() => {
 .fade-leave-to {
   opacity: 0;
 }
+
+#blog::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 50%;
+  background-color: #f3f4f6;
+  z-index:-1;
+}
+
+#grid-img::before {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:80%;
+  background-color:#f3f4f6;
+  z-index: -1;
+} 
 
 </style>
 
